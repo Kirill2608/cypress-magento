@@ -25,10 +25,18 @@ describe('check filter and sort', () => {
         ResultArea.loadResult(10)
     })    
 
-    it.only('sort by name', () => {
+    it('sort by name', () => {
         Menu.clickOnMenu('3','1')
         cy.wait(3000)
         ResultArea.clickOnSortBy('Product Name')
         ResultArea.getProductName(ResultArea.selectors.nameProduct, '0').should('have.value', 'A')
+    })
+
+    it('selected category', () => {
+        Menu.clickOnMenu('3','1')
+        cy.wait(3000)
+        Filter.clickOnFilter('1','2')
+        ResultArea.loadResult(12)
+        Filter.addCategories(1)
     })
 })

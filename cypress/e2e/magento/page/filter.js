@@ -8,6 +8,22 @@ get filtersSubMenu () {
     return cy.get('.filter-options-item>div a')
 }
 
+get selectedCategories () {
+    return cy.get('.filter-current>ol>li')
+}
+
+
+/**
+ * Check number of selected filters 
+ * @param amountResult Number of selected filters 
+ */
+addCategories(amountResult) {
+    cy.get('.filter-current>ol>li').should(($p) => {
+        expect($p).to.have.length(amountResult)
+})
+}
+
+
 /**
  * Click on filter menu or submenu
  * @param filterMainMenu Sequential number filter menu button. starting from 0 (total 0-12)

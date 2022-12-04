@@ -8,6 +8,10 @@ class ResultArea {
         nameProduct: '.product-item-link'
     }
 
+    /**
+     * Check number of result
+     * @param amountResult number of result
+     */
     loadResult(amountResult) {
         cy.get('.item.product').should(($p) => {
             expect($p).to.have.length(amountResult)
